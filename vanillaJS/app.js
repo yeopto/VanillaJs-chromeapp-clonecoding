@@ -1,14 +1,15 @@
-const toBuy = ["potato", "tomate", "pizza"];
-console.log(toBuy);
+function sayHello(nameOfPerson, age) {
+    console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
+}
 
-toBuy.push("kimbab");
-console.log(toBuy);
+sayHello("nico", 10);
 
-const player = {
-    name: "yeop",
-    points: 10,
-    fat: true,
-};
-console.log(player);
-player.lastname = "potato";
-console.log(player);
+function plus(firstNumber, secondNumber) {
+    console.log(firstNumber + secondNumber);
+}
+
+plus(10, 20);
+
+const age = parseInt(prompt("How old are you?"));
+
+console.log(isNaN(age))
