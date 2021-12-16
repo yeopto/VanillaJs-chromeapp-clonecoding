@@ -1,15 +1,12 @@
-function sayHello(nameOfPerson, age) {
-    console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
+const title = document.querySelector(".hello h1");
+
+function handleTitleclick() {
+    title.style.color = "blue";
 }
 
-sayHello("nico", 10);
-
-function plus(firstNumber, secondNumber) {
-    console.log(firstNumber + secondNumber);
+function handleMouseLeave() {
+    title.innerText = "Mouse is gone!";
 }
 
-plus(10, 20);
-
-const age = parseInt(prompt("How old are you?"));
-
-console.log(isNaN(age))
+title.addEventListener("click", handleTitleclick);
+title.addEventListener("mouseleave", handleMouseLeave);
