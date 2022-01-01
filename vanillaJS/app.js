@@ -1,12 +1,28 @@
-const title = document.querySelector(".hello h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-function handleTitleclick() {
-    title.style.color = "blue";
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
+
+function formOnSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const userName = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, userName);
+    paintGreeting(userName);
 }
 
-function handleMouseLeave() {
-    title.innerText = "Mouse is gone!";
+function paintGreeting(userName) {
+    greeting.innerText = `Hello ${userName}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-title.addEventListener("click", handleTitleclick);
-title.addEventListener("mouseleave", handleMouseLeave);
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if (savedUsername === null) {
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", formOnSubmit);
+} else {
+    paintGreeting(savedUsername);
+}
